@@ -1,0 +1,11 @@
+* {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    Padding:10px;
+  }
+  
+body{
+    background-color:grey
+}

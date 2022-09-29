@@ -1,0 +1,13 @@
+* {
+    box-sizing: border-box;
+  }
+body{
+    background-color: lightblue;
+}
+
+header {
+    background-color: #6b32e1;
+    color: #fff;
+    padding: 3px;
+    height: 26px;
+  }  

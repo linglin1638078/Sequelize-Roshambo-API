@@ -11,18 +11,7 @@ const seedDb = async () => {
     await db.sync({ force: true, logging: false });
 
 
-    //create games
-    const game1 = await Game.create({
-        result: 'human'
-    });
-
-    const game2 = await Game.create({
-        result: 'computer'
-    });
-
-    const game3 = await Game.create({
-        result: 'tie'
-    });
+    
 
     //create players
 
@@ -32,12 +21,39 @@ const seedDb = async () => {
 
     const Maria = await Player.create({
         username: 'Maria'
+    });
+
+    const Ricky = await Player.create({
+        username: 'Ricky'
     })
+
+    //create games
+    const game1 = await Game.create({
+        name: 'Game 1',
+        result: 'human',
+        playerId: Lily.id
+    });
+
+    const game2 = await Game.create({
+        name: 'Game 2',
+        result: 'computer',
+        playerId: Maria.id
+    });
+
+    const game3 = await Game.create({
+        name: 'Game 3',
+        result: 'tie',
+        playerId: Ricky.id
+    });
 
 
     //find all games
     console.log(
         (await Game.findAll()).map(game => game.result)
+    );
+
+    console.log(
+        (await Game.findAll()).map(game => game.name)
     );
     
     //find all players

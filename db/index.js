@@ -12,6 +12,11 @@ Every player has many games
 */
 
 const Game = db.define('game', {
+    name: {
+        type: Sequelize.STRING,
+        nullAllow: false
+    },
+
     result: {
         //allow allow 3 results
         type: Sequelize.ENUM([
@@ -20,6 +25,7 @@ const Game = db.define('game', {
             'tie'
         ])
     }
+
 })
 
 const Player = db.define('player', {
@@ -29,7 +35,7 @@ const Player = db.define('player', {
     }
 })
 
-Player.hasMany(Game);
+Player.hasMany(Game);//playerId created
 Game.belongsTo(Player);
 
 module.exports = {
